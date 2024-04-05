@@ -1,0 +1,7 @@
+# kojureSuisse
+
+## Package
+```
+./gradlew build
+```
+
