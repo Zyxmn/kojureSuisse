@@ -1,0 +1,19 @@
+@param page: com.kojureSuisse.models.ChatViewModel
+<html lang="en-gb">
+@template.com.kojureSuisse.models.Head()
+    <body>
+        <h1>Chat</h1>
+        <div id="chat_room"></div>
+        <div hx-ext="ws" ws-connect="/ws">
+            <form id="form" ws-send>
+                <label for="chat_message">Rant here</label>
+                <input id="chat_message" name="chat_message">
+            </form>
+            <script>
+                document.body.addEventListener('htmx:wsAfterMessage', e => {
+                    document.getElementById("form").reset();
+                })
+            </script>
+        </div>
+    </body>
+</html>
